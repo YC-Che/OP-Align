@@ -32,9 +32,9 @@ mkdir log
 ln -s <dataset_location> dataset
 ```
 ## Training
-Each category has different joint settings
+Each category has different joint settings. See `SPConvNets/options.py` for more details.
 
-
+```
 python run_art.py train --num-iterations 20000 experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode train equi_settings --dataset-type Real --shape-type basket_output --nmasks 3 --njoints 2 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
 
 python run_art.py train --num-iterations 20000 experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode train equi_settings --dataset-type Real --shape-type drawer_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type p --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
@@ -44,8 +44,11 @@ python run_art.py train --num-iterations 20000 experiment --seed 1234 --experime
 python run_art.py train --num-iterations 20000 experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode train equi_settings --dataset-type Real --shape-type suitcase_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
 
 python run_art.py train --num-iterations 20000 experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode train equi_settings --dataset-type Real --shape-type scissor_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
+```
 
 ## Testing
+Each category has different joint settings. See `SPConvNets/options.py` for more details.
+```
 python run_art.py train --num-iterations 20000 --resume-path <The_Path_of_PTH_File> experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode test equi_settings --dataset-type Real --shape-type basket_output --nmasks 3 --njoints 2 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
 
 python run_art.py train --num-iterations 20000 --resume-path <The_Path_of_PTH_File> experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode test equi_settings --dataset-type Real --shape-type drawer_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type p --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
@@ -55,3 +58,4 @@ python run_art.py train --num-iterations 20000 --resume-path <The_Path_of_PTH_Fi
 python run_art.py train --num-iterations 20000 --resume-path <The_Path_of_PTH_File> experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode test equi_settings --dataset-type Real --shape-type suitcase_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
 
 python run_art.py train --num-iterations 20000 --resume-path <The_Path_of_PTH_File> experiment --seed 1234 --experiment-id Any_Name_You_like --run-mode test equi_settings --dataset-type Real --shape-type scissor_output --nmasks 2 --njoints 1 --partial 0 model --rotation-range 120 --joint-type r --prob-threshold 0.05 --rigid-cd-w 0.5 --color-cd-w 0
+```
