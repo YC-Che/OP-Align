@@ -14,7 +14,7 @@ exp_args.add_argument('--dataset', type=str, default='kpts',
                       help='name of the datasets')    # used in 3d match
 exp_args.add_argument('--model-dir', type=str, default='log',
                       help='path to models (the root of all outputs)')
-exp_args.add_argument('-s', '--seed', type=int, default=2913,
+exp_args.add_argument('-s', '--seed', type=int, default=1234,
                       help='random seed')
 exp_args.add_argument('--run-mode', type=str, default='train',
                       help='train | eval | test')
@@ -71,7 +71,7 @@ net_args.add_argument('--drop_xyz', action='store_true', help='If set, drop xyz 
 
 net_args.add_argument('--rotation-range', type=float, default=90,
                       help='Rotation range for each joint')
-net_args.add_argument('--prob-threshold', type=float, default=0.1,
+net_args.add_argument('--prob-threshold', type=float, default=0.05,
                       help='minimum part prob. threshold')
 net_args.add_argument('--rigid-cd-w', type=float, default=0.5,
                       help='global cd weight for rotation selection.')
@@ -86,7 +86,7 @@ net_args.add_argument('--joint-type', type=str, default='r',
 train_args = parser.add_parser("train")
 train_args.add_argument('-e', '--num-epochs', type=int, default=None,
                         help='maximum number of training epochs')
-train_args.add_argument('-i', '--num-iterations', type=int, default=40000,
+train_args.add_argument('-i', '--num-iterations', type=int, default=20000,
                         help='maximum number of training iterations')
 train_args.add_argument('-b', '--batch-size', type=int, default=16,
                         help='batch size to train')
@@ -220,7 +220,7 @@ art_args.add_argument('--topk', type=int, default=0,
                        help='type of loss function')
 art_args.add_argument('--slot-iters', type=int, default=3,
                        help='type of loss function')
-art_args.add_argument('--dataset-type', type=str, default='lignt',
+art_args.add_argument('--dataset-type', type=str, default='Real',
                        help='type of loss function')
 art_args.add_argument('--rot-factor', type=float, default=0.5,
                        help='joint rotation range')
