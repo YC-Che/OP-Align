@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "train",
+                "--num-iterations", "10000",
+                "--resume-path", "log/suitcase/suitcase_sj/ckpt/suitcase_sj2_net_best.pth",
+
+                "experiment",
+                "--seed", "42",
+                "--experiment-id", "suitcase_sj",
+                "--run-mode", "test",
+
+                "equi_settings",
+                "--dataset-type", "Real",
+                "--shape-type", "suitcase_output",
+                "--nmasks", "2",
+                "--njoints", "1",
+                "--partial", "1",
+
+                "model",
+                "--rotation-range", "120",
+                "--joint-type", "r",
+                "--prob-threshold", "0.05",
+                "--rigid-cd-w", "0.5",
+                "--color-cd-w", "0",
+            ]
+        }
+    ]
+}
