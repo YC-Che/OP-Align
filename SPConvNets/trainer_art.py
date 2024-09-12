@@ -335,9 +335,13 @@ def val(dataset_test, dataset_train, model, metric, device, logger):
         pose_label = data['pose_segs'].to(device)
         joint_label = torch.cat([data['part_pv_point'], data['part_axis']], dim=-1).to(device)
         segmentation_label = data['label'].to(device)
+        if 'expand' not in data.keys():
+            data['expand'] = torch.ones_like(pc[:,0,0])
         expand_label = data['expand'].to(device)
+        if 'center' not in data.keys():
+            data['center'] = torch.zeros_like(pc[:,:,0])
         center_label = data['center'].to(device)
-        name = data['name']
+        #name = data['name']
         t_start = time.time()
         pred = model(pc, color)
         t_inference = time.time() - t_start
@@ -397,7 +401,7 @@ def val(dataset_test, dataset_train, model, metric, device, logger):
     part_10d10c = torch.logical_and(part_10degree, part_10cm).sum() / all_idx.shape[0]
     seg_50 = seg_50.sum() / all_idx.shape[0]
     seg_75 = seg_75.sum() / all_idx.shape[0]
-
+    logger.log('Testing', '***Result*** (Notice these are not the same metrics in our paper!!)')
     logger.log('Testing', 'Average Segmentation IoU: ' + str(100 * mean_seg))
     logger.log('Testing', 'Average Joint Position Error: ' + str(mean_joint))
     logger.log('Testing', 'Average Joint Direction Error: ' + str(mean_drct))

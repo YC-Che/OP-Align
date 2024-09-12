@@ -11,7 +11,7 @@ from glob import glob
 
 class LightDataset(data.Dataset):
     def __init__(
-            self, root="./data/pc", npoints=1024, split='train', nmask=2, shape_type="laptop", partial = 0, args=None):
+            self, root="./dataset/pc", npoints=1024, split='train', nmask=2, shape_type="laptop", partial = 0, args=None):
         super(LightDataset, self).__init__()
 
         self.root = root
