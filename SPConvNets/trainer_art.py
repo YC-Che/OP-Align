@@ -401,24 +401,26 @@ def val(dataset_test, dataset_train, model, metric, device, logger):
     part_10d10c = torch.logical_and(part_10degree, part_10cm).sum() / all_idx.shape[0]
     seg_50 = seg_50.sum() / all_idx.shape[0]
     seg_75 = seg_75.sum() / all_idx.shape[0]
-    logger.log('Testing', '***Result*** (Notice these are not the same metrics in our paper!!)')
-    logger.log('Testing', 'Average Segmentation IoU: ' + str(100 * mean_seg))
-    logger.log('Testing', 'Average Joint Position Error: ' + str(mean_joint))
-    logger.log('Testing', 'Average Joint Direction Error: ' + str(mean_drct))
-    logger.log('Testing', 'Average Part Rotation Error: ' + str(mean_rotation))
-    logger.log('Testing', 'Average Part Translation Error: ' + str(mean_trans))
-    logger.log('Testing', 'Part 5degree5cm: ' + str(100 * part_5d5c))
-    logger.log('Testing', 'Part 5degree10cm: ' + str(100 * part_5d10c))
-    logger.log('Testing', 'Part 10degree5cm: ' + str(100 * part_10d5c))
-    logger.log('Testing', 'Part 10degree10cm: ' + str(100 * part_10d10c))
-    logger.log('Testing', 'Joint 5degree5cm: ' + str(100 * joint_5d5c))
-    logger.log('Testing', 'Joint 5degree10cm: ' + str(100 * joint_5d10c))
-    logger.log('Testing', 'Joint 10degree5cm: ' + str(100 * joint_10d5c))
-    logger.log('Testing', 'Joint 10degree10cm: ' + str(100 * joint_10d10c))
-    logger.log('Testing', 'Segmentation 50: ' + str(100 * seg_50))
-    logger.log('Testing', 'Segmentation 75: ' + str(100 * seg_75))
-    logger.log('Testing', f'Mem: {mem_used_max_GB:.3f}GB')
-    logger.log('Testing', 'FPS: ' + str(1/mean_time.item()))
+
+    # Notice these metrics (minimum mAP) is different from the metrics in our paper
+    # Use generated .csv file to calculate mean mAP
+    #logger.log('Testing', 'Average Segmentation IoU: ' + str(100 * mean_seg))
+    #logger.log('Testing', 'Average Joint Position Error: ' + str(mean_joint))
+    #logger.log('Testing', 'Average Joint Direction Error: ' + str(mean_drct))
+    #logger.log('Testing', 'Average Part Rotation Error: ' + str(mean_rotation))
+    #logger.log('Testing', 'Average Part Translation Error: ' + str(mean_trans))
+    #logger.log('Testing', 'Part 5degree5cm: ' + str(100 * part_5d5c))
+    #logger.log('Testing', 'Part 5degree10cm: ' + str(100 * part_5d10c))
+    #logger.log('Testing', 'Part 10degree5cm: ' + str(100 * part_10d5c))
+    #logger.log('Testing', 'Part 10degree10cm: ' + str(100 * part_10d10c))
+    #logger.log('Testing', 'Joint 5degree5cm: ' + str(100 * joint_5d5c))
+    #logger.log('Testing', 'Joint 5degree10cm: ' + str(100 * joint_5d10c))
+    #logger.log('Testing', 'Joint 10degree5cm: ' + str(100 * joint_10d5c))
+    #logger.log('Testing', 'Joint 10degree10cm: ' + str(100 * joint_10d10c))
+    #logger.log('Testing', 'Segmentation 50: ' + str(100 * seg_50))
+    #logger.log('Testing', 'Segmentation 75: ' + str(100 * seg_75))
+    #logger.log('Testing', f'Mem: {mem_used_max_GB:.3f}GB')
+    #logger.log('Testing', 'FPS: ' + str(1/mean_time.item()))
 
     acc_score = part_10d10c + joint_10d10c + seg_50
 
