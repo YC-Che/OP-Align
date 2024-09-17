@@ -23,7 +23,6 @@ We provide a novel real-world dataset for category-level Articulated Object Pose
 You can download our dataset from [here](https://drive.google.com/file/d/1rfbVkHj8Uu0fmtuGDQGjUFi5oV86uWcb/view).
 
 Each *.npz files contains point cloud captured from a single-view RGB-D camera. To visualize the data based on image format, reshape array into (480,640,-1).
-
 - pc (307200, 3) # 480 * 640 * xyz
 - color (307200, 3) # 480 * 640 * rgb
 - detection (307200,) # 480 * 640, maskRCNN/SAM result
@@ -31,7 +30,7 @@ Each *.npz files contains point cloud captured from a single-view RGB-D camera. 
 - part (2, 15) # P * (9+3+3), per-part rotation, translation, scale
 - joint (1, 6) # J * (3+3), per-joint direction, pivot
 
-
+We also provide the HOI4D part of the synthetic dataset at [here](https://drive.google.com/file/d/1xJw6K4RefEejBEth2i4wHyEPTYyBeWUJ/view?usp=sharing). Refer to [EAP](https://github.com/Meowuu7/equi-articulated-pose) for more details. To run this dataset, add ```--dataset-type Light``` at the end of training/testing script, and change ```--shape-type``` into ```laptop_h``` or ```safe```.
 
 ## Enviroment
 OP-Align uses a similar enviroment with [E2PN](https://github.com/minghanz/E2PN/tree/main) and adds [PyTorch3D](https://pytorch3d.org/) module.
