@@ -1,4 +1,4 @@
-# OP-Align: Object-level and Part-level Alignment for Self-supvervised Category-level Articulated Object Pose Estimation
+# OP-Align: Object-level and Part-level Alignment for Self-supvervised Category-level Articulated Object Pose Estimation (ECCV2024 Oral)
 OP-Align is a model designed for category-level articulated object pose esimation task with self-supervised learning.
 This repo contains the code of OP-Align model and our real-word dataset.
 
@@ -12,6 +12,7 @@ If you find the code or dataset useful for your research, please cite our paper.
   title={OP-Align: Object-level and Part-level Alignment for Self-supvervised Category-level Articulated Object Pose Estimation},
   author={Che, Yuchen and Furukawa, Ryo and Kanezaki, Asako},
   booktitle={European Conference on Computer Vision},
+  pages={72--88},
   year={2024},
   organization={Springer}
 }
