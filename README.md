@@ -44,8 +44,7 @@ cd vgtk; python setup.py build_ext --inplace; cd ..
 mkdir log
 ln -s <dataset_location> dataset
 ```
-<!-- Temporary remove model weight until further experiments.-->
-<!-- Finanlly, we also provide the trained model weights at [here](https://drive.google.com/file/d/1E_SyEni5IRZ6bMoyDFo4Y2rLHsPMkQxZ/view?usp=drive_link). You can download and unzip them at `log` folder. -->
+Finanlly, we also provide the trained model weights at [here](https://drive.google.com/file/d/1V3evz0CCXgfCIOjJXX6lxyHYgroNJtZE/view?usp=sharing). You can download and unzip them at `log` folder.
 
 ## Running Script
 Each category has different joint settings. Specifically, `--shape-type` indicates the category, `--nmask` indicates the number of parts, `--njoints` indicates the number of joints, `--rotation-range` indicates the limitation or joint movement and `--joint-type` indicates whether the joint is a revolute or prismatic joint. See `SPConvNets/options.py` for more details.
